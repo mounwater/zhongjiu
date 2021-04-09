@@ -9,15 +9,24 @@ const rename = require("gulp-rename");
 const babel = require("gulp-babel");
 
 gulp.task("copyHtml", done => {
-    gulp.src("*.html").pipe(gulp.dest("dist")).pipe(connect.reload());
+    gulp.src("*.html")
+        .pipe(gulp.dest("dist"))
+        .pipe(connect.reload());
     done();
 });
 gulp.task("copySass", done => {
-    gulp.src("sass/*.scss").pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write()).pipe(gulp.dest("dist/css")).pipe(connect.reload());
+    gulp.src("sass/*.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("dist/css"))
+        .pipe(connect.reload());
     done();
 });
 gulp.task("copyJs", done => {
-    gulp.src("js/*.js").pipe(gulp.dest("dist/js")).pipe(connect.reload());
+    gulp.src("js/*.js")
+        .pipe(gulp.dest("dist/js"))
+        .pipe(connect.reload());
     done();
 });
 gulp.task("copyImg", done => {
@@ -26,19 +35,20 @@ gulp.task("copyImg", done => {
 });
 
 gulp.task("watch", done => {
-    gulp.src("*.html", gulp.series("copyHtml"));
-    gulp.src("sass/*.scss", gulp.series("copySass"));
-    gulp.src("js/*.js", gulp.series("copyJs"));
-    gulp.src("img/*.{jpg,png,gif}", gulp.series("copyImg"));
+    gulp.watch("*.html", gulp.series("copyHtml"));
+    gulp.watch("sass/*.scss", gulp.series("copySass"));
+    gulp.watch("js/*.js", gulp.series("copyJs"));
+    gulp.watch("img/*.{jpg,png,gif}", gulp.series("copyImg"));
     done();
 });
 gulp.task("server", done => {
     connect.server({
         root: "dist",
+        port: 3000,
         livereload: true
-    });
+    })
     done();
 });
 
-gulp.task("build", gulp.series("copyHtml", "copySass", "copyJs", "copyImg"));
+gulp.task("build", gulp.parallel("copyHtml", "copySass", "copyJs", "copyImg"));
 gulp.task("default", gulp.series("build", "server", "watch"));
