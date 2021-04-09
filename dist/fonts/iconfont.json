@@ -1,0 +1,93 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1397480",
+      "name": "黄酒",
+      "font_class": "huangjiu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "3524165",
+      "name": "浏览历史",
+      "font_class": "liulanlishi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4498294",
+      "name": "葡萄酒",
+      "font_class": "putaojiu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "5167252",
+      "name": "白酒",
+      "font_class": "baijiu_",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "7982154",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "e510",
+      "unicode_decimal": 58640
+    },
+    {
+      "icon_id": "12218926",
+      "name": "关注",
+      "font_class": "guanzhu",
+      "unicode": "e719",
+      "unicode_decimal": 59161
+    },
+    {
+      "icon_id": "14138579",
+      "name": "洋酒",
+      "font_class": "yangjiu",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "15694745",
+      "name": "婚庆",
+      "font_class": "hunqing",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "16818933",
+      "name": "资产",
+      "font_class": "zichan",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "18051464",
+      "name": "礼盒",
+      "font_class": "icon--",
+      "unicode": "e53c",
+      "unicode_decimal": 58684
+    },
+    {
+      "icon_id": "18923189",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "19737409",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    }
+  ]
+}

@@ -6,10 +6,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页-模拟中酒网</title>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.js"></script> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-hover-dropdown/2.0.1/twitter-bootstrap-hover-dropdown.js"></script>
+    <script src="fonts/iconfont.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="topwrap"></div>
+    <div class="topwrap">
+        <div class="top">
+            <div class="topleft fl">
+                <p>您好，欢迎来到<span> 中酒网！</span></p>
+                <a href="https://www.zhongjiu.cn/">去首页</a>
+            </div>
+            <ul class="topul fl">
+                <li><a href="https://www.zhongjiu.cn/Login">请登录</a></li>
+                <li><a href="https://www.zhongjiu.cn/Register">免费注册</a></li>
+            </ul>
+            <ul class="topright fr">
+                <li class="myzhongjiu">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" data-hover="dropdown" href="https://www.zhongjiu.cn/usercenter/home">
+                           我的中酒网
+                           <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="https://www.zhongjiu.cn/userorder">已买到的商品</a>
+                            </li>
+                            <li>
+                                <a href="https://www.zhongjiu.cn/productconcern">我关注的商品</a>
+                            </li>
+                            <li>
+                                <a href="https://www.zhongjiu.cn/shopconcern">
+                                    我关注的店铺
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="cart.html">购物车<span class="cartcount">0</span>件</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" data-hover="dropdown">
+                            微信端
+                         </a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                            <img src="img/qrCode.png" width="90" height="90">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" data-hover="dropdown">
+                            APP
+                         </a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <img src="img/mob.jpg" width="90" height="90">
+                            <p>扫描二维码</p>
+                            <p>下载手机客户端</p>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="https://www.zhongjiu.cn/selleradmin">卖家中心</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" data-hover="dropdown" href="#">
+                            客户服务
+                         </a>
+                        <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <li>
+                                <p>商户</p>
+                            </li>
+                            <li><a href="https://www.zhongjiu.cn/Help/20-22.htm">平台准则</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">订购热线：400-798-9999</a></li>
+            </ul>
+
+
+
+
+        </div>
+    </div>
+    <div class="searchbar clean">
+        <a class="fl" href="https://www.zhongjiu.cn/"><img src="img/logo.png" alt=""></a>
+        <a class="searchgif fl" href="http://pro.zhongjiu.cn/20141209/shouji/shouji.html"><img src="img/search-bar.gif" alt=""></a>
+        <div class="searchwrap fl">
+            <div class="search">
+                <select name="" id="">
+                    <option value="">商品</option>
+                    <option value="">店铺</option>
+                </select>
+                <input class="text" type="text" placeholder="天佑德">
+                <input class="btn" type="submit" value="搜索">
+            </div>
+            <div class="hot-search">
+                <a href="/search.htm?keywords=西凤" class="active">西凤</a>
+                <a href="/search.htm?keywords=青稞酒">青稞酒</a>
+                <a href="/search.htm?keywords=洋河">洋河</a>
+                <a href="/search.htm?keywords=习酒">习酒</a>
+                <a href="/search.htm?keywords=小糊涂仙">小糊涂仙</a>
+                <a href="/search.htm?keywords=酒鬼酒">酒鬼酒</a>
+                <a href="/search.htm?keywords=张裕">张裕</a>
+                <a href="/search.htm?keywords=拉菲">拉菲</a>
+                <a href="/search.htm?keywords=董酒">董酒</a>
+                <a href="/search.htm?keywords=华夏长城">华夏长城</a>
+            </div>
+        </div>
+        <a class="searchright fr" href="http://pro.zhongjiu.cn/20160606/qkj.html"><img src="img/searchright.jpg" alt=""></a>
+    </div>
+    <div class="navwrap clean">
+        <div class="nav">
+            <a class="fl" href="https://www.zhongjiu.cn/0-0-1-1-1.htm">
+                <div class="navleft">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-caidan"></use>
+                    </svg><span>全部商品分类</span>
+                </div>
+            </a>
+            <ul class="navright fl">
+                <li><a class="active" href="https://www.zhongjiu.cn/">首页</a></li>
+                <li><a href="http://pro.zhongjiu.cn/20160606/qkj.html">天佑德青稞酒</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightfixed">
+        <ul>
+            <li class="mine">
+                <span class="iconfont icon-gerenzhongxin"></span>
+                <p class="outbox">个人中心<span></span></p>
+            </li>
+            <li class="shopcart">
+                <span class="iconfont icon-gouwuche"></span>
+                <p>购物车<span class="cartcount">0</span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-zichan"></span>
+                <p class="outbox">资产中心<span></span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-guanzhu"></span>
+                <p class="outbox">关注商品<span></span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-liulanlishi"></span>
+                <p class="outbox">浏览历史<span></span></p>
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>
