@@ -44,7 +44,7 @@ gulp.task("watch", done => {
 gulp.task("server", done => {
     connect.server({
         root: "dist",
-        port: 3000,
+        port: 3001,
         livereload: true
     })
     done();
