@@ -70,7 +70,7 @@ window.onload = function() {
             // console.log(1);
         });
     })();
-    //从接口读取hotsale数据
+    //从接口载入hotsale数据
     (function() {
         $.getJSON("http://127.0.0.1:3000/commodity", (res) => {
             // console.log(res);
@@ -146,6 +146,71 @@ window.onload = function() {
             timer = setInterval(function() {
                 move();
             }, 3000)
+        });
+    })();
+    //“帮您选酒”模块“必备口粮”载入数据
+    (function() {
+        $.getJSON("http://localhost:3000/mustbuy", (res) => {
+            // console.log(res);
+            let str = "";
+            res.forEach(item => { //在热销爆款处写入数据
+                str += `
+                <li>
+                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
+                    <span>￥${item.price}</span>
+                    <a href="detail.html?id=${item.id}">
+                        <p>${item.title}</p>
+                    </a>
+                </li>
+                `;
+            });
+            $(".choicebox1").html(str);
+        })
+    })();
+    //“帮您选酒”模块“送礼佳品”载入数据
+    (function() {
+        $.getJSON("http://localhost:3000/gift", (res) => {
+            // console.log(res);
+            let str = "";
+            res.forEach(item => { //在热销爆款处写入数据
+                str += `
+                <li>
+                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
+                    <span>￥${item.price}</span>
+                    <a href="detail.html?id=${item.id}">
+                        <p>${item.title}</p>
+                    </a>
+                </li>
+                `;
+            });
+            $(".choicebox2").html(str);
+        })
+    })();
+    //“帮您选酒”模块“大型宴请”载入数据
+    (function() {
+        $.getJSON("http://localhost:3000/fete", (res) => {
+            // console.log(res);
+            let str = "";
+            res.forEach(item => { //在热销爆款处写入数据
+                str += `
+                <li>
+                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
+                    <span>￥${item.price}</span>
+                    <a href="detail.html?id=${item.id}">
+                        <p>${item.title}</p>
+                    </a>
+                </li>
+                `;
+            });
+            $(".choicebox3").html(str);
+        })
+    })();
+    //选酒模块划过切换列表版面
+    (function() {
+        $(".choiceme li").mouseenter(function() { //jquery真的好好用啊！哈哈，爱了！！！
+            $(this).addClass("active").siblings().removeClass("active");
+            let index = $(this).index();
+            $(".choiceright ul").eq(index).addClass("activebox").siblings().removeClass("activebox");
         });
     })();
 };
