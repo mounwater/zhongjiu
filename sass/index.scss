@@ -1,6 +1,10 @@
 $font:12px;
 $width:1190px;
 $boxcenter: 0 auto;
+body {
+    position: relative;
+}
+
 .topwrap {
     width: 100%;
     height: 31px;
@@ -744,5 +748,300 @@ hr {
     }
     .activebox {
         display: block;
+    }
+}
+
+.floorcontrol {
+    position: fixed;
+    width: 37px;
+    // background: #fff;
+    left: 50%;
+    top: 50%;
+    margin-left: -650px;
+    ul>li {
+        width: 37px;
+        height: 31px;
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+        line-height: 31px;
+        box-sizing: content-box;
+        border-bottom: 1px dashed gray;
+        span {
+            display: none;
+            width: 37px;
+            height: 31px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            line-height: 31px;
+            background: #e3393c;
+        }
+    }
+    li:hover span {
+        display: block;
+        // border-bottom: 1px dashed white;
+    }
+    .littlehover {
+        &>span {
+            display: block;
+        }
+    }
+}
+
+.storewrap {
+    width: $width;
+    height: 413px;
+    margin: $boxcenter;
+    h3 {
+        font-size: 18px;
+        color: #3d4048;
+        height: 18px;
+        margin-bottom: 15px;
+        line-height: 18px;
+    }
+    .storebottom {
+        width: $width;
+        height: 380px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.storemiddle {
+    width: 550px;
+    height: 307px;
+    border-top: 2px solid #f3f3f3;
+    border-bottom: 2px solid #f3f3f3;
+    float: left;
+    padding: 20px 40px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: content-box;
+    .storeisslider {
+        position: relative;
+    }
+    .storeisslider {
+        width: 550px;
+        height: 306px;
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+        .storelist {
+            width: 2200px;
+            height: 306px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            .storemoveimg {
+                width: 550px;
+                height: 306px;
+                float: left;
+                ul {
+                    width: 550px;
+                    height: 306px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    li {
+                        width: 110px;
+                        height: 100px;
+                        a {
+                            width: 111px;
+                            height: 62px;
+                            margin-top: 20px;
+                            display: inline-block;
+                            background-image: url(../img/store-bg.png);
+                            background-repeat: no-repeat;
+                            background-position: right center;
+                            img {
+                                width: 100px;
+                                height: 50px;
+                                margin: 6px auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.storearr {
+    position: absolute;
+    top: 50%;
+    left: 19px;
+    margin-top: -19px;
+    width: 600px;
+    height: 38px;
+    z-index: 2;
+    span {
+        display: block;
+        width: 26px;
+        height: 38px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        line-height: 38px;
+        cursor: pointer;
+        // background: rgba($color: gray, $alpha: 0.5);
+        background: gray;
+        opacity: 0.3;
+        user-select: none;
+    }
+}
+
+.ensurewrap {
+    width: 100%;
+    height: 108px;
+    border-bottom: 1px solid #d6d6d6;
+    background: #f8f8f8;
+    .ensure {
+        width: $width;
+        margin: $boxcenter;
+        dl {
+            margin-right: 36px;
+            margin-top: 33px;
+            .zhengpin {
+                background: url(../img/icon.png) 0 -37px no-repeat;
+            }
+            .lingjun {
+                background: url(../img/icon.png) -57px -37px no-repeat;
+            }
+            .tuihuo {
+                background: url(../img/icon.png) -125px -37px no-repeat;
+            }
+            .peisong {
+                background: url(../img/icon.png) -181px -37px no-repeat;
+            }
+            .ensure dl .koubei {
+                background: url(../img/icon.png) -241px -37px no-repeat;
+            }
+            .ser {
+                background: url(../img/icon.png) -301px -37px no-repeat;
+            }
+            dt {
+                width: 55px;
+                height: 40px;
+            }
+            dd h3 {
+                font-size: 16px;
+                color: #313131;
+                padding-bottom: 2px;
+            }
+            dd p {
+                font-size: 13px;
+                color: #666666;
+            }
+        }
+    }
+}
+
+.morewrap {
+    width: 100%;
+    height: 224px;
+    background: #f3f3f3;
+    overflow: hidden;
+    .more {
+        width: $width;
+        height: 189px;
+        margin: $boxcenter;
+        margin-top: 35px;
+        .morelogo {
+            width: 200px;
+            height: 99px;
+            margin-top: 8px;
+            dd {
+                width: 101px;
+                height: 30px;
+                margin-bottom: 20px;
+                a {
+                    display: block;
+                }
+            }
+            dd:nth-child(1) a {
+                width: 101px;
+                height: 30px;
+                background: url(../img/zj.png) no-repeat;
+            }
+            dd:nth-child(2) a {
+                width: 126px;
+                height: 30px;
+                background: url(../img/ls.png) no-repeat;
+            }
+            dd:nth-child(1):hover a {
+                background: url(../img/zj2.png) no-repeat;
+            }
+            dd:nth-child(2):hover a {
+                background: url(../img/ls2.png) no-repeat;
+            }
+        }
+        dl {
+            width: 141px;
+            float: left;
+            dt {
+                font-size: 15px;
+                line-height: 36px;
+            }
+            dd a {
+                font-size: 13px;
+                line-height: 24px;
+            }
+            a:hover {
+                color: #e3393c;
+            }
+        }
+        .weixin,
+        .mobile {
+            float: right;
+            width: 101px;
+            text-align: center;
+            margin-right: 20px;
+            dd {
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+.linkwrap {
+    width: 100%;
+    background-color: #313131;
+    .link {
+        width: $width;
+        text-align: center;
+        margin: $boxcenter;
+        a {
+            padding: 0 14px;
+            border-left: 1px solid #fff;
+            text-align: center;
+            font-size: 13px;
+            color: white;
+            line-height: 39px;
+        }
+        a:nth-child(1) {
+            border-left: none;
+        }
+    }
+}
+
+.copyright {
+    text-align: center;
+    p {
+        color: #666;
+        font-size: 12px;
+        padding: 10px 0 0px;
+    }
+    a:hover {
+        color: red;
+    }
+    .beian {
+        text-align: center;
+        a {
+            display: inline-block;
+        }
     }
 }

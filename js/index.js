@@ -89,7 +89,7 @@ window.onload = function() {
             $(".hotlistul").html(str);
         })
     })();
-    //小轮播
+    //“帮您选酒”模块小轮播
     (function() {
         /* let oSliderBox = document.getElementById("sliderBox"); */
         let oUl = document.getElementById("sliderList");
@@ -121,9 +121,9 @@ window.onload = function() {
         }
 
         //箭头
-        let arrow = document.querySelector(".arr");
+        let arrow = document.querySelectorAll(".arr");
 
-        let aBtns = arrow.children;
+        let aBtns = arrow[0].children;
 
         //左箭头321321
         aBtns[0].onclick = function() {
@@ -205,12 +205,292 @@ window.onload = function() {
             $(".choicebox3").html(str);
         })
     })();
-    //选酒模块划过切换列表版面
+    //划过切换列表版面
     (function() {
-        $(".choiceme li").mouseenter(function() { //jquery真的好好用啊！哈哈，爱了！！！
-            $(this).addClass("active").siblings().removeClass("active");
-            let index = $(this).index();
-            $(".choiceright ul").eq(index).addClass("activebox").siblings().removeClass("activebox");
+        $(".choiceme").each(function() { //重点在于解决如何通过一个函数使页面内所有和“帮您选酒”模块一样的商品列表都可以切换，在这里遍历所有存放要切换的ul的choiceme盒子
+            let thisul = $(this).parent().siblings(".choicebottom").children(".choiceright").children(); //这里是获取鼠标悬浮的选项相对应该模块的切换列表ul，使之对应此选项
+            $($(this).children()).mouseenter(function() { //jquery真的好好用啊！哈哈，爱了！！！
+                $(this).addClass("active").siblings().removeClass("active");
+                let index = $(this).index();
+                thisul.eq(index).addClass("activebox").siblings().removeClass("activebox");
+            });
+        });
+
+    })();
+    //“白酒馆”模块小轮播
+    (function() {
+        /* let oSliderBox = document.getElementById("sliderBox"); */
+        let oUl = document.getElementById("sliderList1");
+        let aList = oUl.children;
+        let perWidth = aList[0].offsetWidth; //单位宽，即每次移动的距离
+        let len = aList.length;
+        oUl.style.width = len * perWidth + "px";
+
+
+        //定时器 控制ul的移动
+        let count = 0;
+        let timer = setInterval(function() {
+            move();
+        }, 3000)
+
+        function move() {
+            count++;
+            if (count == aList.length) {
+                oUl.style.left = 0; //在空白区块出现之前，把UL的位置改变一下，让实际的第一张展示在轮播区域；里
+                count = 1; //为了下一张出现第二张
+            }
+            if (count == -1) {
+                oUl.style.left = -perWidth * (len - 1) + "px"; //倒数第一张
+                count = len - 2;
+            }
+            startMove(oUl, {
+                "left": -perWidth * count
+            });
+        }
+
+        //箭头
+        let arrow = document.querySelectorAll(".arr");
+
+        let aBtns = arrow[1].children;
+
+        //左箭头321321
+        aBtns[0].onclick = function() {
+            count -= 2;
+            move();
+        }
+
+        //右箭头 123123
+        aBtns[1].onclick = function() {
+
+                move();
+
+            }
+            //清定时器
+        $(".choiceslider").mouseenter(function() {
+            clearInterval(timer);
+        });
+        //重新开启定时器
+        $(".choiceslider").mouseleave(function() {
+            timer = setInterval(function() {
+                move();
+            }, 3000)
+        });
+    })();
+    //“葡萄酒馆”模块小轮播
+    (function() {
+        /* let oSliderBox = document.getElementById("sliderBox"); */
+        let oUl = document.getElementById("sliderList2");
+        let aList = oUl.children;
+        let perWidth = aList[0].offsetWidth; //单位宽，即每次移动的距离
+        let len = aList.length;
+        oUl.style.width = len * perWidth + "px";
+
+
+        //定时器 控制ul的移动
+        let count = 0;
+        let timer = setInterval(function() {
+            move();
+        }, 3000)
+
+        function move() {
+            count++;
+            if (count == aList.length) {
+                oUl.style.left = 0; //在空白区块出现之前，把UL的位置改变一下，让实际的第一张展示在轮播区域；里
+                count = 1; //为了下一张出现第二张
+            }
+            if (count == -1) {
+                oUl.style.left = -perWidth * (len - 1) + "px"; //倒数第一张
+                count = len - 2;
+            }
+            startMove(oUl, {
+                "left": -perWidth * count
+            });
+        }
+
+        //箭头
+        let arrow = document.querySelectorAll(".arr");
+
+        let aBtns = arrow[2].children;
+
+        //左箭头321321
+        aBtns[0].onclick = function() {
+            count -= 2;
+            move();
+        }
+
+        //右箭头 123123
+        aBtns[1].onclick = function() {
+
+                move();
+
+            }
+            //清定时器
+        $(".choiceslider").mouseenter(function() {
+            clearInterval(timer);
+        });
+        //重新开启定时器
+        $(".choiceslider").mouseleave(function() {
+            timer = setInterval(function() {
+                move();
+            }, 3000)
+        });
+    })();
+    //“洋酒&啤酒馆”模块小轮播
+    (function() {
+        /* let oSliderBox = document.getElementById("sliderBox"); */
+        let oUl = document.getElementById("sliderList3");
+        let aList = oUl.children;
+        let perWidth = aList[0].offsetWidth; //单位宽，即每次移动的距离
+        let len = aList.length;
+        oUl.style.width = len * perWidth + "px";
+
+
+        //定时器 控制ul的移动
+        let count = 0;
+        let timer = setInterval(function() {
+            move();
+        }, 3000)
+
+        function move() {
+            count++;
+            if (count == aList.length) {
+                oUl.style.left = 0; //在空白区块出现之前，把UL的位置改变一下，让实际的第一张展示在轮播区域；里
+                count = 1; //为了下一张出现第二张
+            }
+            if (count == -1) {
+                oUl.style.left = -perWidth * (len - 1) + "px"; //倒数第一张
+                count = len - 2;
+            }
+            startMove(oUl, {
+                "left": -perWidth * count
+            });
+        }
+
+        //箭头
+        let arrow = document.querySelectorAll(".arr");
+
+        let aBtns = arrow[3].children;
+
+        //左箭头321321
+        aBtns[0].onclick = function() {
+            count -= 2;
+            move();
+        }
+
+        //右箭头 123123
+        aBtns[1].onclick = function() {
+
+                move();
+
+            }
+            //清定时器
+        $(".choiceslider").mouseenter(function() {
+            clearInterval(timer);
+        });
+        //重新开启定时器
+        $(".choiceslider").mouseleave(function() {
+            timer = setInterval(function() {
+                move();
+            }, 3000)
+        });
+    })();
+    //楼梯
+    (function() {
+        var flag = true;
+        let floor = $(".choicewinewrap").children().children(".floor");
+        $(window).scroll(function() {
+            console.log($(this).scrollTop());
+            //滚动条滚动到一定位置，左边的导航显示
+            if (flag) {
+                var st = $(this).scrollTop();
+                if (st >= 1000 && st <= 4000) {
+                    $(".floorcontrol").fadeIn();
+                } else {
+                    $(".floorcontrol").fadeOut();
+                }
+                //内容区块展示时，对应的导航点亮
+                floor.each(function() {
+                    // console.log($(this).offset().top);
+                    if (st >= $(this).offset().top - $(this).outerHeight() / 2) {
+                        var index = $(this).index();
+                        $(".floorcontrol li").eq(index).addClass("littlehover").siblings().removeClass("littlehover");
+                    }
+                })
+            }
+
+        })
+
+        //点击导航时，对应的内容区块展示
+        $(".floorcontrol li").click(function() {
+            flag = false;
+            var index = $(this).index();
+
+            $("body,html").stop().animate({
+                "scrollTop": floor.eq(index).offset().top
+            }, 500, function() {
+                flag = true;
+            });
+
+            $(this).addClass("hover").siblings().removeClass("hover");
+        })
+    })();
+    //“品牌旗舰店”模块小轮播
+    (function() {
+        /* let oSliderBox = document.getElementById("sliderBox"); */
+        let oUl = document.getElementById("sliderList4");
+        let aList = oUl.children;
+        let perWidth = aList[0].offsetWidth; //单位宽，即每次移动的距离
+        let len = aList.length;
+        oUl.style.width = len * perWidth + "px";
+
+
+        //定时器 控制ul的移动
+        let count = 0;
+        let timer = setInterval(function() {
+            move();
+        }, 3000)
+
+        function move() {
+            count++;
+            if (count == aList.length) {
+                oUl.style.left = 0; //在空白区块出现之前，把UL的位置改变一下，让实际的第一张展示在轮播区域；里
+                count = 1; //为了下一张出现第二张
+            }
+            if (count == -1) {
+                oUl.style.left = -perWidth * (len - 1) + "px"; //倒数第一张
+                count = len - 2;
+            }
+            startMove(oUl, {
+                "left": -perWidth * count
+            });
+        }
+
+        //箭头
+        let arrow = document.querySelectorAll(".arr");
+
+        let aBtns = arrow[4].children;
+        console.log(aBtns);
+        //左箭头321321
+        aBtns[0].onclick = function() {
+            count -= 2;
+            move();
+        }
+
+        //右箭头 123123
+        aBtns[1].onclick = function() {
+
+                move();
+
+            }
+            //清定时器
+        $(".choiceslider").mouseenter(function() {
+            clearInterval(timer);
+        });
+        //重新开启定时器
+        $(".choiceslider").mouseleave(function() {
+            timer = setInterval(function() {
+                move();
+            }, 3000)
         });
     })();
 };
