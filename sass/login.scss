@@ -1,0 +1,158 @@
+$width: 965px;
+$center: 0 auto;
+.logowrap {
+    width: $width;
+    height: 80px;
+    line-height: 80px;
+    margin: $center;
+    a {
+        display: block;
+        margin-top: 20px;
+        img {
+            width: 295px;
+            // height: 38px;
+            vertical-align: middle;
+        }
+        float: left;
+    }
+    p {
+        float: left;
+        margin-left: 20px;
+        line-height: 80px;
+        font-size: 18px;
+    }
+}
+
+.bannerwrap {
+    width: 100%;
+    height: 470px;
+    background: #e33938;
+    .banner {
+        width: $width;
+        height: 470px;
+        margin: $center;
+        background: url(../img/loginbannerimg.png) no-repeat;
+        background-position: 6px 62px;
+    }
+    .loginwrap {
+        margin-top: 20px;
+        width: 344px;
+        height: 430px;
+        background: white;
+        .choice {
+            width: 344px;
+            height: 55px;
+            border-bottom: 1px solid rgba(233, 233, 233, 0.60);
+            li {
+                width: 172px;
+                list-style: none;
+                float: left;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 55px;
+                cursor: pointer;
+            }
+            .active {
+                color: #e54b54;
+            }
+        }
+        .change {
+            width: 344px;
+            height: 250px;
+            position: relative;
+        }
+        .loginthere {
+            display: none;
+            width: 344px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            p {
+                width: 159px;
+                height: 159px;
+                border: 1px solid #f1f1f1;
+                margin: $center;
+                margin-top: 20px;
+                img {
+                    width: 159px;
+                    height: 159px;
+                }
+            }
+            span {
+                color: #aaaaaa;
+                font-size: 12px;
+                height: 45px;
+                line-height: 45px;
+            }
+            .loginthis {
+                width: 231px;
+                height: 25px;
+                border: none;
+                img {
+                    width: 231px;
+                    height: 25px;
+                }
+            }
+        }
+        .registerthere {
+            display: none;
+            width: 344px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            .inputwrap {
+                p {
+                    width: 288px;
+                    height: 40px;
+                    border: 1px solid #c4c3c3;
+                    margin: $center;
+                    margin-top: 30px;
+                    position: relative;
+                    span {
+                        text-align: center;
+                        display: inline-block;
+                        width: 56px;
+                        height: 40px;
+                        background: rgba(246, 246, 246, 0.50);
+                        border-right: 1px solid #e9e9e9;
+                        line-height: 40px;
+                    }
+                    input {
+                        height: 30px;
+                        border: none;
+                        outline: none;
+                    }
+                    .warn {
+                        display: block;
+                        width: 100px;
+                        font-size: 12px;
+                        position: absolute;
+                        top: 34px;
+                        left: 140px;
+                        color: red;
+                        border-right: none;
+                    }
+                }
+                .loginbtn {
+                    margin-top: 30px;
+                    cursor: pointer;
+                    width: 288px;
+                    height: 40px;
+                    border: none;
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 40px;
+                    color: white;
+                    background: red;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .choicethis {
+            display: block;
+        }
+    }
+}

@@ -1,4 +1,11 @@
 window.onload = function() {
+    //读取用户名
+    (function() {
+        let str = `<a class="exit">　退出登录</a>`;
+        if ($.cookie("username") != "" && $.cookie("username") != "null") {
+            $(".topul").html("已登录祝您购物愉快！" + $.cookie("username") + str);
+        }
+    })();
     //banner轮播图
     (function() {
         // let oImg = document.getElementsByTagName("img");
@@ -399,7 +406,7 @@ window.onload = function() {
         var flag = true;
         let floor = $(".choicewinewrap").children().children(".floor");
         $(window).scroll(function() {
-            console.log($(this).scrollTop());
+            // console.log($(this).scrollTop());
             //滚动条滚动到一定位置，左边的导航显示
             if (flag) {
                 var st = $(this).scrollTop();
@@ -469,7 +476,7 @@ window.onload = function() {
         let arrow = document.querySelectorAll(".arr");
 
         let aBtns = arrow[4].children;
-        console.log(aBtns);
+        // console.log(aBtns);
         //左箭头321321
         aBtns[0].onclick = function() {
             count -= 2;
@@ -491,6 +498,18 @@ window.onload = function() {
             timer = setInterval(function() {
                 move();
             }, 3000)
+        });
+    })();
+    //退出登录
+    (function() {
+        $(".exit").click(function() {
+            let choice = confirm("用户" + $.cookie("username") + "，您确定要退出登录吗？");
+            if (choice) {
+                $.cookie("username", null);
+                location.href = "../";
+            } else {
+                return;
+            }
         });
     })();
 };

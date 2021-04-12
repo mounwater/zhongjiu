@@ -1,0 +1,137 @@
+$width: 965px;
+$center: 0 auto;
+body {
+    background: #eef3fa;
+}
+
+.topwrap {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    line-height: 30px;
+    background: #F7F7F7;
+    .top {
+        width: $width;
+        margin: $center;
+        line-height: 30px;
+        a {
+            font-size: 12px;
+        }
+        span {
+            font-size: 12px;
+        }
+    }
+}
+
+.logo {
+    width: $width;
+    height: 80px;
+    margin: $center;
+    img {
+        float: left;
+        width: 434px;
+        margin-top: 13px;
+    }
+    h3 {
+        font-weight: bold;
+        line-height: 80px;
+    }
+}
+
+.registerwrap {
+    width: 990px;
+    height: 626px;
+    background: white;
+    margin: $center;
+    .tips {
+        padding-right: 10px;
+        position: relative;
+        overflow: visible;
+        margin-bottom: -1px;
+        border-bottom: 1px solid #dddddd;
+        height: 32px;
+        line-height: 32px;
+        background: #f2f2f2;
+        a {
+            font-size: 13px;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: red;
+        }
+        span {
+            font-size: 12px;
+        }
+    }
+    .register {
+        margin-top: 60px;
+        div {
+            width: 500px;
+            height: 50px;
+            padding: 10px 30px;
+            position: relative;
+            span {
+                display: block;
+                width: 200px;
+                line-height: 38px;
+                text-align: right;
+                float: left;
+                font-size: 14px;
+                color: #999;
+                padding-right: 10px;
+            }
+            .warn {
+                display: none;
+                width: 200px;
+                height: 38px;
+                border: 1px solid gray;
+                position: absolute;
+                top: 9px;
+                left: 527px;
+                text-align: left;
+                font-size: 12px;
+            }
+            .error {
+                display: block;
+                color: #e4393c;
+                line-height: 36px;
+                height: 36px;
+                position: absolute;
+                top: 9px;
+                left: 527px;
+                width: 200px;
+                padding: 0 5px;
+                background: #FFEBEB;
+                border: 1px solid #ffbdbe;
+            }
+            input {
+                display: block;
+                float: left;
+                width: 238px;
+                height: 16px;
+                padding: 10px 25px 10px 5px;
+                border: 1px solid #cccccc;
+            }
+            .checkbox {
+                width: 16px;
+                height: 16px;
+                margin-top: 12px;
+            }
+            .agree {
+                font-size: 12px;
+            }
+        }
+        .registerbtn {
+            width: 270px;
+            height: 36px;
+            border: none;
+            font-size: 13px;
+            color: white;
+            background: red;
+            text-align: center;
+            line-height: 36px;
+            padding: 0px 0px;
+            margin-left: 213px;
+            cursor: pointer;
+        }
+    }
+}
