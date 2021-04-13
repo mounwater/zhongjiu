@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车-模拟中酒网</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/commen.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery_cookie.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-hover-dropdown/2.0.1/twitter-bootstrap-hover-dropdown.js"></script>
+    <script src="fonts/iconfont.js"></script>
+    <script src="js/startMove.js"></script>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topwrap">
+        <div class="top">
+            <div class="topleft fl">
+                <p>您好，欢迎来到<span> 中酒网！</span></p>
+                <a href="https://www.zhongjiu.cn/">去首页</a>
+            </div>
+            <ul class="topul fl">
+                <li><a href="login.html">请登录</a></li>
+                <li><a href="register.html">免费注册</a></li>
+            </ul>
+            <ul class="topright fr">
+                <li class="myzhongjiu">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" data-hover="dropdown" href="https://www.zhongjiu.cn/usercenter/home">
+                           我的中酒网
+                           <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="https://www.zhongjiu.cn/userorder">已买到的商品</a>
+                            </li>
+                            <li>
+                                <a href="https://www.zhongjiu.cn/productconcern">我关注的商品</a>
+                            </li>
+                            <li>
+                                <a href="https://www.zhongjiu.cn/shopconcern">
+                                    我关注的店铺
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="cart.html">购物车<span class="cartcount">0</span>件</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" data-hover="dropdown">
+                            微信端
+                         </a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                            <img src="img/qrCode.png" width="90" height="90">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" data-hover="dropdown">
+                            APP
+                         </a>
+                        <div class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <img src="img/mob.jpg" width="90" height="90">
+                            <p>扫描二维码</p>
+                            <p>下载手机客户端</p>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="https://www.zhongjiu.cn/selleradmin">卖家中心</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" data-hover="dropdown" href="#">
+                            客户服务
+                         </a>
+                        <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <li>
+                                <p>商户</p>
+                            </li>
+                            <li><a href="https://www.zhongjiu.cn/Help/20-22.htm">平台准则</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">订购热线：400-798-9999</a></li>
+            </ul>
+
+
+
+
+        </div>
+    </div>
+    <div class="searchbar clean">
+        <a class="fl" href="https://www.zhongjiu.cn/"><img src="img/logo.png" alt=""></a>
+        <a class="searchgif fl" href="http://pro.zhongjiu.cn/20141209/shouji/shouji.html"><img src="img/search-bar.gif" alt=""></a>
+        <div class="searchwrap fl">
+            <div class="search">
+                <select name="" id="">
+                    <option value="">商品</option>
+                    <option value="">店铺</option>
+                </select>
+                <input class="text" type="text" placeholder="天佑德">
+                <input class="btn" type="submit" value="搜索">
+            </div>
+            <div class="hot-search">
+                <a href="/search.htm?keywords=西凤" class="active">西凤</a>
+                <a href="/search.htm?keywords=青稞酒">青稞酒</a>
+                <a href="/search.htm?keywords=洋河">洋河</a>
+                <a href="/search.htm?keywords=习酒">习酒</a>
+                <a href="/search.htm?keywords=小糊涂仙">小糊涂仙</a>
+                <a href="/search.htm?keywords=酒鬼酒">酒鬼酒</a>
+                <a href="/search.htm?keywords=张裕">张裕</a>
+                <a href="/search.htm?keywords=拉菲">拉菲</a>
+                <a href="/search.htm?keywords=董酒">董酒</a>
+                <a href="/search.htm?keywords=华夏长城">华夏长城</a>
+            </div>
+        </div>
+        <a class="searchright fr" href="http://pro.zhongjiu.cn/20160606/qkj.html"><img src="img/searchright.jpg" alt=""></a>
+    </div>
+    <div class="navwrap clean">
+        <div class="nav">
+            <a class="fl" href="https://www.zhongjiu.cn/0-0-1-1-1.htm">
+                <div class="navleft">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-caidan"></use>
+                    </svg><span>全部商品分类</span>
+                </div>
+            </a>
+            <ul class="navright fl">
+                <li><a class="active" href="https://www.zhongjiu.cn/">首页</a></li>
+                <li><a href="http://pro.zhongjiu.cn/20160606/qkj.html">天佑德青稞酒</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightfixed">
+        <ul>
+            <li class="mine">
+                <span class="iconfont icon-gerenzhongxin"></span>
+                <p class="outbox">个人中心<span></span></p>
+            </li>
+            <li class="shopcart">
+                <span class="iconfont icon-gouwuche"></span>
+                <p>购物车<span class="cartcount">0</span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-zichan"></span>
+                <p class="outbox">资产中心<span></span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-guanzhu"></span>
+                <p class="outbox">关注商品<span></span></p>
+            </li>
+            <li>
+                <span class="iconfont icon-liulanlishi"></span>
+                <p class="outbox">浏览历史<span></span></p>
+            </li>
+        </ul>
+    </div>
+    <div class="sliderwrap clean">
+        <div class="menuwrap">
+            <div class="menuleft fl">
+                <ul class="menumore">
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-baijiu_"></span>
+                            <a href="http://www.zhongjiu.cn/list/2-0-0-1-1-1.htm">白酒</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/list/2-323-0-1-1-1.htm" target="_blank">茅台</a>
+                            <a href="http://www.zhongjiu.cn/list/2-322-0-1-1-1.htm" target="_blank">五粮液</a>
+                            <a href="http://www.zhongjiu.cn/list/2-838-0-1-1-1.htm" target="_blank" class="active">天佑德</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-326-0-1-1-1.htm" target="_blank">泸州老窖</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-325-0-1-1-1.htm" target="_blank">洋河</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-324-0-1-1-1.htm" target="_blank">剑南春</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-538-0-1-1-1.htm" target="_blank">牛栏山</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-449-0-1-1-1.htm" target="_blank">红星</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/2-590-0-1-1-1.htm" target="_blank">西凤</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=1573" target="_blank">国窖1573</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-594-0-1-1-1.htm" target="_blank">小糊涂仙</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=郎酒" target="_blank">郎酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=习酒" target="_blank">习酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=鸭溪窖" target="_blank">鸭溪窖</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/2-343-0-1-1-1.htm" target="_blank">汾酒</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-955-0-1-1-1.htm" target="_blank">董酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=酒鬼" target="_blank">酒鬼酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=一道泓" target="_blank">一道泓</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=五粮醇" target="_blank">五粮醇</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-445-0-1-1-1.htm" target="_blank">衡水老白干</a></li>
+
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-0-1-1-1.htm" target="_blank">更多</a></li>
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>香型</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1028-1-1-1.htm" target="_blank">酱香型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1022-1-1-1.htm" target="_blank">浓香型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1025-1-1-1.htm" target="_blank">绵柔型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1019-1-1-1.htm" target="_blank">凤香型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1027-1-1-1.htm" target="_blank">董香型</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>产地</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1016-1-1-1.htm" target="_blank">贵州</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1011-1-1-1.htm" target="_blank">江西</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1006-1-1-1.htm" target="_blank">四川</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1010-1-1-1.htm" target="_blank">江苏</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1009-1-1-1.htm" target="_blank">山西</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/2-0-1003-1-1-1.htm" target="_blank">内蒙</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1133-1-1-1.htm" target="_blank">青海</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://pro.zhongjiu.cn/20160606/qkj.html" title="天佑德青稞酒"><img src="img/menuright01.jpg" alt="天佑德青稞酒"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-putaojiu"></span>
+                            <a href="http://www.zhongjiu.cn/list/101-0-0-1-1-1.htm">葡萄酒</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/list/101-697-0-1-1-1.htm" target="_blank">拉菲</a>
+                            <a href="http://www.zhongjiu.cn/list/101-626-0-1-1-1.htm" target="_blank">张裕</a>
+                            <a href="http://www.zhongjiu.cn/list/101-915-0-1-1-1.htm" target="_blank" class="active">马克斯威</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-457-0-1-1-1.htm" target="_blank">黄尾袋鼠</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-543-0-1-1-1.htm" target="_blank">佩西</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-884-0-1-1-1.htm" target="_blank">乐船</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-511-0-1-1-1.htm" target="_blank">小龙船</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-963-0-1-1-1.htm" target="_blank">特拉托</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/101-691-0-1-1-1.htm" target="_blank">圣迪斯</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-662-0-1-1-1.htm" target="_blank">奔富</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-674-0-1-1-1.htm" target="_blank">康迪</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>类型</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1043-1-1-1.htm" target="_blank">干红葡萄酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1044-1-1-1.htm" target="_blank">干白葡萄酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1045-1-1-1.htm" target="_blank">气泡/香槟</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1086-1-1-1.htm" target="_blank">冰酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1085-1-1-1.htm" target="_blank">果酒</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/101-0-1131-1-1-1.htm" target="_blank">甜桃红</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1127-1-1-1.htm" target="_blank">甜白</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>产区</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1036-1-1-1.htm" target="_blank">法国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1039-1-1-1.htm" target="_blank">西班牙</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1037-1-1-1.htm" target="_blank">智利</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1119-1-1-1.htm" target="_blank">阿根廷</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1041-1-1-1.htm" target="_blank">澳大利亚</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/101-0-1040-1-1-1.htm" target="_blank">中国</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1084-1-1-1.htm" target="_blank">美国</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.zhongjiu.cn/list/101-626-0-1-2-2.htm" title="张裕干红葡萄酒"><img src="img/menuright02.jpg" alt="张裕干红葡萄酒"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-yangjiu"></span>
+                            <a href="http://www.zhongjiu.cn/list/502-0-0-1-1-1.htm">洋酒</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/list/502-534-0-1-1-1.htm" target="_blank" class="active">马爹利</a>
+                            <a href="http://www.zhongjiu.cn/list/502-332-0-1-1-1.htm" target="_blank">人头马</a>
+                            <a href="http://www.zhongjiu.cn/list/502-330-0-1-1-1.htm" target="_blank">芝华士</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-836-0-1-1-1.htm" target="_blank">皇家贝斯</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-794-0-1-1-1.htm" target="_blank">深蓝</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-795-0-1-1-1.htm" target="_blank">百利甜</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-329-0-1-1-1.htm" target="_blank">绝对伏特加</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-632-0-1-1-1.htm" target="_blank">杰克丹尼</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/502-327-0-1-1-1.htm" target="_blank">百龄坛</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-642-0-1-1-1.htm" target="_blank">百加得</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-637-0-1-1-1.htm" target="_blank">尊尼获加</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-331-0-1-1-1.htm" target="_blank">轩尼诗</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-631-0-1-1-1.htm" target="_blank">皇家礼炮</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-940-0-1-1-1.htm" target="_blank">摩根船长</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>适用</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1083-1-1-1.htm" target="_blank">聚会用酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1080-1-1-1.htm" target="_blank">商务用酒</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>产地</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1062-1-1-1.htm" target="_blank">中国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1053-1-1-1.htm" target="_blank">法国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1052-1-1-1.htm" target="_blank">英国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1057-1-1-1.htm" target="_blank">美国</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.zhongjiu.cn/list/502-332-0-1-1-1.htm" title="人头马"><img src="img/menuright03.jpg" alt="人头马"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-huangjiu"></span>
+                            <a href="http://www.zhongjiu.cn/list/565-0-0-1-1-1.htm">黄酒</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/list/565-949-0-1-1-1.htm" target="_blank">尧喝货</a>
+                            <a href="http://www.zhongjiu.cn/list/565-768-0-1-1-1.htm" target="_blank" class="active">唐宋</a>
+                            <a href="http://www.zhongjiu.cn/list/565-705-0-1-1-1.htm" target="_blank">塔牌</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-334-0-1-1-1.htm" target="_blank">女儿红</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-335-0-1-1-1.htm" target="_blank">古越龙山</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-769-0-1-1-1.htm" target="_blank">石库门</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-336-0-1-1-1.htm" target="_blank">劲酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-764-0-1-1-1.htm" target="_blank">会稽山</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>适用</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-0-1083-1-1-1.htm" target="_blank">聚会用酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-0-1082-1-1-1.htm" target="_blank">礼节拜访</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-0-1081-1-1-1.htm" target="_blank">婚庆用酒</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.zhongjiu.cn/list/565-768-0-1-1-1.htm" title="唐宋"><img src="img/menuright04.jpg" alt="唐宋"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-icon--"></span>
+                            <a href="http://pro.zhongjiu.cn/20170103/lihe.html">礼盒专区</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/productdetail/81335.htm" target="_blank" class="active">五粮液五星级</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/search.htm?keywords=礼盒" target="_blank">礼盒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-322-0-1-1-1.htm" target="_blank">五粮液</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-342-0-1-1-1.htm" target="_blank">汾酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-323-0-1-1-1.htm" target="_blank">茅台</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-324-0-1-1-1.htm" target="_blank">剑南春</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/101-626-0-1-1-1.htm" target="_blank">张裕</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-697-0-1-1-1.htm" target="_blank">拉菲</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>类型</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1028-1-1-1.htm" target="_blank">酱香型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1022-1-1-1.htm" target="_blank">浓香型</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1043-1-1-1.htm" target="_blank">干红葡萄酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1044-1-1-1.htm" target="_blank">干白葡萄酒</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>产地</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1006-1-1-1.htm" target="_blank">四川</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1016-1-1-1.htm" target="_blank">贵州</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1036-1-1-1.htm" target="_blank">法国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1084-1-1-1.htm" target="_blank">美国</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.zhongjiu.cn/productdetail/81335.htm" title="五星级"><img src="img/menuright05.jpg" alt="五星级"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>
+                            <span class="iconfont icon-hunqing"></span>
+                            <a href="http://pro.zhongjiu.cn/20160919/huny.html">婚庆专区</a>
+                        </h3>
+                        <p>
+                            <a href="http://www.zhongjiu.cn/list/2-323-0-1-1-1.htm" target="_blank" class="active">茅台</a>
+                            <a href="http://www.zhongjiu.cn/list/101-697-0-1-1-1.htm" target="_blank">拉菲</a>
+                            <a href="http://www.zhongjiu.cn/list/2-322-0-1-1-1.htm" target="_blank">五粮液</a>
+                            <a href="http://www.zhongjiu.cn/list/101-626-0-1-1-1.htm" target="_blank">张裕</a>
+                        </p>
+                        <div class="category-details">
+                            <div class="subitem fl">
+                                <dl class="first" style="z-index:99;">
+                                    <dt>品牌</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-324-0-1-1-1.htm" target="_blank">剑南春</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-326-0-1-1-1.htm" target="_blank">泸州老窖</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-798-0-1-1-1.htm" target="_blank">伊莎特</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-543-0-1-1-1.htm" target="_blank">佩西</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-964-0-1-1-1.htm" target="_blank">卡萨玛利亚</a></li>
+                                            <li class="lastChild"><a title="" href="http://www.zhongjiu.cn/list/101-883-0-1-1-1.htm" target="_blank">龙船康帝</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-503-0-1-1-1.htm" target="_blank">郎酒</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>种类</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-0-1-1-1.htm" target="_blank">白酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-0-1-1-1.htm" target="_blank">红酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-0-1-1-1.htm" target="_blank">洋酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1045-1-1-1.htm" target="_blank">起泡酒</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/565-0-0-1-1-1.htm" target="_blank">黄酒</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+                                    <dt>产地</dt>
+                                    <hr>
+                                    <dd class="clearfix">
+                                        <ul>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1016-1-1-1.htm" target="_blank">贵州</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/2-0-1006-1-1-1.htm" target="_blank">四川</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1041-1-1-1.htm" target="_blank">澳大利亚</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/101-0-1036-1-1-1.htm" target="_blank">法国</a></li>
+                                            <li><a title="" href="http://www.zhongjiu.cn/list/502-0-1052-1-1-1.htm" target="_blank">英国</a></li>
+
+
+
+                                        </ul>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <div class="cate-right fr">
+                                <h5>推荐品牌</h5>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.zhongjiu.cn/productdetail/3878.htm" title="白西凤"><img src="img/menuright06.jpg" alt="白西凤"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cartwrap">
+        <table class="cart" border=1>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>名称</th>
+                    <th>介绍</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                    <th>单个商品总价</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="showthere">
+                <!-- <tr>
+                    <td class="img">
+                        <a href=""><img src="img/1_220.png" alt=""></a>
+                    </td>
+                    <td class="name">42度天佑德青稞酒小黑125ml×4</td>
+                    <td class="desc">wine</td>
+                    <td class="price">119.00</td>
+                    <td class="thiscount">
+                        <div class="countwrap">
+                            <span class="minus fl">-</span>
+                            <input type="text" class="count fl" value="1">
+                            <span class="add fl">+</span>
+                        </div>
+                    </td>
+                    <td class="thissum">647.00</td>
+                    <td class="do">
+                        <input type="button" value="删除">
+                    </td>
+                </tr>
+                 -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6"></td>
+                    <td>合计：￥<span class="allsum">0</span></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

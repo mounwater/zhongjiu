@@ -1,8 +1,10 @@
 window.onload = function() {
     //读取用户名
     (function() {
+        // console.log($.cookie("username"));
         let str = `<a class="exit">　退出登录</a>`;
-        if ($.cookie("username") != "" && $.cookie("username") != "null") {
+        if ($.cookie("username") == "" || $.cookie("username") == "null" || $.cookie("username") == undefined) {} else {
+            // console.log(1);
             $(".topul").html("已登录祝您购物愉快！" + $.cookie("username") + str);
         }
     })();
@@ -79,21 +81,64 @@ window.onload = function() {
     })();
     //从接口载入hotsale数据
     (function() {
-        $.getJSON("http://127.0.0.1:3000/commodity", (res) => {
+        $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", { username: "fxg", password: 123456, uid: 51055, pagesize: 24 }, (res) => {
+            // console.log(res);
+            res = res.data;
             // console.log(res);
             let str = "";
-            res.forEach(item => { //在热销爆款处写入数据
+            for (let i = 0; i < 10; i++) { //在热销爆款处写入数据
                 str += `
                 <li>
-                    <a href="detail.html?id=${item.id}">
-                        <img src="${item.img}" alt="">
+                    <a href="detail.html?id=${res[i].pid}">
+                        <img src="${res[i].pimg}" alt="">
                     </a>
-                    <p>${item.title}</p>
-                    <span>￥${item.price}</span>
+                    <p>${res[i].pname}</p>
+                    <span>￥${res[i].pprice}</span>
                 </li>
                 `;
-            });
+            }
             $(".hotlistul").html(str);
+            let str1 = "";
+            for (let i = 10; i < 18; i++) { //在热销爆款处写入数据
+                // console.log(res[i]);
+                str1 += `
+                <li>
+                    <a href="detail.html?id=${res[i].pid}"><img src="${res[i].pimg}" alt=""></a>
+                    <span>￥${res[i].pprice}</span>
+                    <a href="detail.html?id=${res[i].pid}">
+                        <p>${res[i].pname}</p>
+                    </a>
+                </li>
+                `;
+            }
+            $(".choicebox1").html(str1);
+            let str2 = "";
+            for (let i = 18; i < 19; i++) { //在热销爆款处写入数据
+                str2 += `
+                <li>
+                    <a href="detail.html?id=${res[i].pid}"><img src="${res[i].pimg}" alt=""></a>
+                    <span>￥${res[i].pprice}</span>
+                    <a href="detail.html?id=${res[i].pid}">
+                        <p>${res[i].pname}</p>
+                    </a>
+                </li>
+                `;
+            }
+            $(".choicebox2").html(str2);
+            let str3 = "";
+            for (let i = 19; i < 24; i++) { //在热销爆款处写入数据
+                // console.log(res[i]);
+                str3 += `
+                <li>
+                    <a href="detail.html?id=${res[i].pid}"><img src="${res[i].pimg}" alt=""></a>
+                    <span>￥${res[i].pprice}</span>
+                    <a href="detail.html?id=${res[i].pid}">
+                        <p>${res[i].pname}</p>
+                    </a>
+                </li>
+                `;
+            }
+            $(".choicebox3").html(str3);
         })
     })();
     //“帮您选酒”模块小轮播
@@ -154,63 +199,6 @@ window.onload = function() {
                 move();
             }, 3000)
         });
-    })();
-    //“帮您选酒”模块“必备口粮”载入数据
-    (function() {
-        $.getJSON("http://localhost:3000/mustbuy", (res) => {
-            // console.log(res);
-            let str = "";
-            res.forEach(item => { //在热销爆款处写入数据
-                str += `
-                <li>
-                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
-                    <span>￥${item.price}</span>
-                    <a href="detail.html?id=${item.id}">
-                        <p>${item.title}</p>
-                    </a>
-                </li>
-                `;
-            });
-            $(".choicebox1").html(str);
-        })
-    })();
-    //“帮您选酒”模块“送礼佳品”载入数据
-    (function() {
-        $.getJSON("http://localhost:3000/gift", (res) => {
-            // console.log(res);
-            let str = "";
-            res.forEach(item => { //在热销爆款处写入数据
-                str += `
-                <li>
-                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
-                    <span>￥${item.price}</span>
-                    <a href="detail.html?id=${item.id}">
-                        <p>${item.title}</p>
-                    </a>
-                </li>
-                `;
-            });
-            $(".choicebox2").html(str);
-        })
-    })();
-    //“帮您选酒”模块“大型宴请”载入数据
-    (function() {
-        $.getJSON("http://localhost:3000/fete", (res) => {
-            // console.log(res);
-            let str = "";
-            res.forEach(item => { //在热销爆款处写入数据
-                str += `
-                <li>
-                    <a href="detail.html?id=${item.id}"><img src="${item.img}" alt=""></a>
-                    <span>￥${item.price}</span>
-                    <a href="detail.html?id=${item.id}">
-                        <p>${item.title}</p>
-                    </a>
-                </li>
-                `;
-            });
-            $(".choicebox3").html(str);
-        })
     })();
     //划过切换列表版面
     (function() {

@@ -40,18 +40,13 @@ window.onload = function() {
                 return;
             }
             /* $.ajax({url:"http://localhost:3000/users",data:{name:$(".username").val(),password:$(".password").val()}}); */
-            $.getJSON("http://localhost:3000/users", (res) => {
-                // console.log(res);
-                let yes = false; //设置检测器
-                res.forEach(function(item) {
-                    // console.log(item.name);
-                    if (username == item.name && password == item.password) {
-                        $.cookie("username", username);
-                        location.href = "../";
-                        yes = true;
-                    }
-                });
-                if (!yes) {
+            $.get("http://jx.xuzhixiang.top/ap/api/login.php", { username: username, password: password }, (res) => {
+                // console.log(res.data);
+                if (res.code == 1) {
+                    $.cookie("username", username);
+                    $.cookie("userid", res.data.id);
+                    location.href = "../";
+                } else {
                     alert("用户名密码错误！请重试！");
                 }
             });

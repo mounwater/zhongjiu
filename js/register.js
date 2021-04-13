@@ -53,11 +53,12 @@ window.onload = function() {
             }
             if ($(".warn").text() == "") { //通过判断error是否存在的形式来验证所有输入是否合规
                 $.ajax({
-                    url: "http://localhost:3000/users",
-                    type: "post", //新增
-                    data: { name: username, password: pwd, phonenumber: phonenum },
+                    url: "http://jx.xuzhixiang.top/ap/api/reg.php",
+                    type: "get", //新增
+                    data: { username: username, password: pwd },
                     success: (res) => {
-                        if (res) {
+                        console.log(res);
+                        if (res.code == 1) {
                             let yes = confirm("注册成功！是否进入登录页面？");
                             if (yes) {
                                 location.href = "../login.html";
