@@ -6,6 +6,13 @@ window.onload = function() {
         if ($.cookie("username") == "" || $.cookie("username") == "null" || $.cookie("username") == undefined) {} else {
             // console.log(1);
             $(".topul").html("已登录祝您购物愉快！" + $.cookie("username") + str);
+            //获取购物车数据（数量）
+            let id = $.cookie("userid");
+            $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
+                let count = res.data.length;
+                $(".cartcount").html(count);
+
+            });
         }
     })();
     //banner轮播图
@@ -79,11 +86,13 @@ window.onload = function() {
             // console.log(1);
         });
     })();
-    //从接口载入hotsale数据
+    //从接口载入数据
     (function() {
         $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", { username: "fxg", password: 123456, uid: 51055, pagesize: 24 }, (res) => {
             // console.log(res);
             res = res.data;
+            // console.log(res);
+            res = res.reverse(); //数组倒序
             // console.log(res);
             let str = "";
             for (let i = 0; i < 10; i++) { //在热销爆款处写入数据
@@ -494,6 +503,7 @@ window.onload = function() {
             let choice = confirm("用户" + $.cookie("username") + "，您确定要退出登录吗？");
             if (choice) {
                 $.cookie("username", null);
+                $.cookie("userid", null);
                 location.href = "../";
             } else {
                 return;

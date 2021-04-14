@@ -5,6 +5,10 @@ body {
     position: relative;
 }
 
+a:hover {
+    color: red;
+}
+
 //top
 .topwrap {
     width: 100%;
@@ -36,6 +40,7 @@ body {
 }
 
 .topul {
+    color: red;
     margin-left: 44px;
     li {
         list-style: none;

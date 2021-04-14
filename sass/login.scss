@@ -149,6 +149,17 @@ $center: 0 auto;
                     background: red;
                     border-radius: 5px;
                 }
+                .toregister {
+                    border: none;
+                    text-align: right;
+                    font-size: 12px;
+                    a {
+                        font-size: 12px;
+                    }
+                    a:hover {
+                        color: red;
+                    }
+                }
             }
         }
         .choicethis {

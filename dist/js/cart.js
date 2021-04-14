@@ -2,9 +2,23 @@
 (function() {
     // console.log($.cookie("username"));
     let str = `<a class="exit">　退出登录</a>`;
-    if ($.cookie("username") == "" || $.cookie("username") == "null" || $.cookie("username") == undefined) {} else {
+    if ($.cookie("username") == "" || $.cookie("username") == "null" || $.cookie("username") == undefined) {
+        let yes = confirm("您还未登录！即将跳转至首页，是否去登录？");
+        if (yes) {
+            location.href = "../login.html";
+        } else {
+            location.href = "../";
+        }
+    } else {
         // console.log(1);
         $(".topul").html("已登录祝您购物愉快！" + $.cookie("username") + str);
+        //获取购物车数据（数量）
+        let id = $.cookie("userid");
+        $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
+            let count = res.data.length;
+            //写入购物车数量
+            $(".cartcount").html(count);
+        });
     }
 })();
 //设置划过“全部商品分类”显示menu
@@ -53,10 +67,13 @@
     $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
         // console.log(res.data);
         res = res.data;
+        // res = res.reverse();//数组倒序
+        // console.log(res);
         res.forEach((item) => {
             // console.log(item);
             str += `
                 <tr id="${item.pid}">
+                <td class="check"><input type="checkbox" class="checkthis"></td>
                     <td class="img">
                         <a href="../detail.html?id=${item.pid}"><img src="${item.pimg}" alt=""></a>
                     </td>
@@ -70,7 +87,7 @@
                             <span class="add fl">+</span>
                         </div>
                     </td>
-                    <td>￥<span class="thissum">${item.pprice*item.pnum}</span></td>
+                    <td class="thispsum">￥<span class="thissum">${item.pprice*item.pnum}</span></td>
                     <td class="do">
                         <input type="button" value="删除" class="delbtn">
                     </td>
@@ -84,15 +101,28 @@
     });
 })();
 window.onload = function() {
+    function updatecartcount() {
+        //获取购物车数据（数量）
+        let id = $.cookie("userid");
+        $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
+            let count = res.data.length;
+            //写入购物车数量
+            $(".cartcount").html(count);
+        });
+    }
     //数量控制
     (function() {
         //计算合计价格
         function getallsum() {
             let sum = 0;
-            $(".thissum").each(function() {
-                // console.log($(this));
-                sum += parseInt($(this).text());
+            $(".checkthis").each(function() {
+
+                if ($(this).prop("checked") == true) {
+                    console.log($(this).parent().parent().children(".thispsum").children(".thissum").text());
+                    sum += parseInt($(this).parent().parent().children(".thispsum").children(".thissum").text());
+                }
             });
+
             return sum;
         }
         $(".allsum").text(getallsum());
@@ -149,15 +179,40 @@ window.onload = function() {
         });
         //删除按钮
         $(".delbtn").click(function() {
-            let yes = confirm("即将删除该商品，是否删除？");
-            if (yes) {
-                $(this).parent().parent().remove();
-                let pid = $(this).parent().parent().attr("id");
-                $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", { uid: id, pid: pid }, (res) => {
-                    console.log(res);
-                });
-                $(".allsum").text(getallsum());
+            // let yes = confirm("即将删除该商品，是否删除？");
+            // if (yes) {
+            $(this).parent().parent().remove();
+            let pid = $(this).parent().parent().attr("id");
+            $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", { uid: id, pid: pid }, (res) => {
+                console.log(res);
+            });
+            $(".allsum").text(getallsum());
+            updatecartcount();
+            // }
+        });
+        //全选按钮
+        $(".checkall").click(function() {
+            // console.log("ok");
+            //prop能够获取到checked属性值
+            $(".checkthis").prop("checked", $(this).prop("checked"));
+            $(".allsum").text(getallsum());
+        });
+        //单个选中按钮
+        $(".checkthis").click(function() {
+            //计算选中状态的复选框数量
+            let checked = 0;
+            $(".checkthis").each(function(i) {
+                if ($(this).prop("checked") == true) {
+                    checked++;
+                }
+            });
+            //判断是否全部为选中状态
+            if (checked == $(".checkthis").length) {
+                $(".checkall").prop("checked", true);
+            } else {
+                $(".checkall").prop("checked", false);
             }
+            $(".allsum").text(getallsum());
         });
     })();
     //退出登录
@@ -166,7 +221,7 @@ window.onload = function() {
             let choice = confirm("用户" + $.cookie("username") + "，您确定要退出登录吗？");
             if (choice) {
                 $.cookie("username", null);
-                // $.cookie("userid", null);
+                $.cookie("userid", null);
                 location.href = "../";
             } else {
                 return;

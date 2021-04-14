@@ -6,6 +6,13 @@ window.onload = function() {
         if ($.cookie("username") == "" || $.cookie("username") == "null" || $.cookie("username") == undefined) {} else {
             // console.log(1);
             $(".topul").html("已登录祝您购物愉快！" + $.cookie("username") + str);
+            //获取购物车数据（数量）
+            let id = $.cookie("userid");
+            $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
+                let count = res.data.length;
+                $(".cartcount").html(count);
+
+            });
         }
     })();
     //设置划过“全部商品分类”显示menu
@@ -172,6 +179,7 @@ window.onload = function() {
             let choice = confirm("用户" + $.cookie("username") + "，您确定要退出登录吗？");
             if (choice) {
                 $.cookie("username", null);
+                $.cookie("userid", null);
                 location.href = "../";
             } else {
                 return;
