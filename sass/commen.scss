@@ -286,13 +286,13 @@ a:hover {
         }
     }
     .littleul {
-        position: absolute;
+        position: absolute; //设置绝对定位水平居中
         bottom: 20px;
         right: 50%;
         margin-right: -75px;
         min-width: 120px;
         min-height: 15px;
-        display: flex; //设置为弹性盒控制div垂直居中
+        display: flex; //设置为弹性盒控制div（小圆点）垂直居中
         justify-content: space-between;
         align-items: center;
         z-index: 10;
@@ -302,13 +302,13 @@ a:hover {
             width: 12px;
             height: 12px;
             background: white;
-            border-radius: 50%;
+            border-radius: 50%; //盒子设置为圆形
             cursor: pointer;
         }
         .active {
             position: relative; //在激活时设置为相对定位，起到在出现边框时不影响（不挤压）旁边元素的效果
             box-sizing: content-box;
-            background-color: transparent;
+            background-color: transparent; //背景设置透明
             border: 3px solid #fff;
         }
     }
