@@ -51,7 +51,13 @@ window.onload = function() {
                 alert("请您阅读用户协议勾选同意后重试！");
                 return;
             }
-            if ($(".warn").text() == "") { //通过判断error是否存在的形式来验证所有输入是否合规
+            let newflag = true;
+            $(".txt").each(function(i) {
+                if ($(this).val() == "") {
+                    newflag = false;
+                }
+            });
+            if ($(".warn").text() == "" && newflag) { //通过判断error是否存在和所有文本框的内容不为空来验证所有输入是否合规
                 $.ajax({
                     url: "http://jx.xuzhixiang.top/ap/api/reg.php",
                     type: "get", //新增
