@@ -622,7 +622,7 @@
     </div>
     <!-- 购物车栏 -->
     <div class="cartwrap">
-        <table class="cart" border=1>
+        <table class="cart" border="1">
             <thead>
                 <tr>
                     <th class="check"><label for="check" class="labelthis">全选</label><input type="checkbox" class="checkall" id="check"></th>
@@ -660,11 +660,18 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="7"></td>
-                    <td>合计：￥<span class="allsum">0</span></td>
+                    <td colspan="5"></td>
+                    <td>共<span class="comcount">0</span>类商品</td>
+                    <td class="yoursum"><span class="fl">合计：￥</span><span class="allsum fl">0</span></td>
+                    <td><input type="button" value="删除选中商品" class="delall"></td>
                 </tr>
             </tfoot>
         </table>
+        <div class="emptycart">
+            <img src="img/emptycart.jpg" alt="">
+            <p>亲！总要买点什么犒劳自己吧？</p>
+            <a href="index.html">点我去逛一逛</a>
+        </div>
     </div>
     <script src="js/cart.js"></script>
 </body>

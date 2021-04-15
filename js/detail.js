@@ -166,7 +166,11 @@ window.onload = function() {
                         if (yes) {
                             location.href = "../cart.html";
                         } else {
-                            console.log("待更新购物车数据");
+                            let id = $.cookie("userid");
+                            $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
+                                let count = res.data.length;
+                                $(".cartcount").html(count);
+                            });
                         }
                     }
                 });

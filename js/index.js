@@ -88,7 +88,7 @@ window.onload = function() {
     })();
     //从接口载入数据
     (function() {
-        $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", { username: "fxg", password: 123456, uid: 51055, pagesize: 24 }, (res) => {
+        $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", { uid: 51055, pagesize: 24 }, (res) => {
             // console.log(res);
             res = res.data;
             // console.log(res);

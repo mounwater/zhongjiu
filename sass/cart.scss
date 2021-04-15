@@ -2,16 +2,23 @@ $font:12px;
 $width:1190px;
 $boxcenter: 0 auto;
 .cartwrap {
+    min-height: 300px;
     background-color: #f5f5f5;
     padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
     .cart {
+        // display: none;
         width: $width;
         min-height: 100px;
         margin: $boxcenter;
         background: white;
         padding: 50px 20px;
+        /* position: absolute;
+        top: 30px; */
         img {
             width: 66px;
+            margin: 0 auto;
         }
         thead {
             tr {
@@ -28,7 +35,7 @@ $boxcenter: 0 auto;
                 }
             }
             .do {
-                width: 150px;
+                width: 100px;
             }
             .delbtn:hover {
                 border: none;
@@ -36,10 +43,57 @@ $boxcenter: 0 auto;
                 background: red;
             }
         }
+        tfoot {
+            tr {
+                td {
+                    text-align: center;
+                }
+                .delall:hover {
+                    border-color: red;
+                    color: white;
+                    background: red;
+                }
+            }
+        }
+        .yoursum {
+            // display: block;
+            line-height: 33px;
+        }
+        .pay {
+            width: 150px;
+        }
+    }
+    .emptycart {
+        // display: none;
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+        img {
+            width: 240px;
+            height: 200px;
+        }
+        p {
+            font-size: 13px;
+            text-align: center;
+        }
+        a {
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: red;
+        }
     }
 }
 
 .countwrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // margin: 0 auto;
     span {
         display: block;
         width: 30px;
@@ -59,10 +113,15 @@ $boxcenter: 0 auto;
     }
     input {
         width: 50px;
+        text-align: center;
     }
 }
 
 .allsum {
     font-size: 24px;
+    color: red;
+}
+
+.comcount {
     color: red;
 }
