@@ -179,16 +179,16 @@ window.onload = function() {
         });
         //删除按钮
         $(".delbtn").click(function() {
-            // let yes = confirm("即将删除该商品，是否删除？");
-            // if (yes) {
-            $(this).parent().parent().remove();
-            let pid = $(this).parent().parent().attr("id");
-            $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", { uid: id, pid: pid }, (res) => {
-                console.log(res);
-            });
-            $(".allsum").text(getallsum());
-            updatecartcount();
-            // }
+            let yes = confirm("即将删除该商品，是否删除？");
+            if (yes) {
+                $(this).parent().parent().remove();
+                let pid = $(this).parent().parent().attr("id");
+                $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", { uid: id, pid: pid }, (res) => {
+                    console.log(res);
+                });
+                $(".allsum").text(getallsum());
+                updatecartcount();
+            }
         });
         //全选按钮
         $(".checkall").click(function() {

@@ -108,7 +108,7 @@ window.onload = function() {
             }
             $(".hotlistul").html(str);
             let str1 = "";
-            for (let i = 10; i < 18; i++) { //在热销爆款处写入数据
+            for (let i = 10; i < 18; i++) { //在白酒馆处写入数据
                 // console.log(res[i]);
                 str1 += `
                 <li>
@@ -122,7 +122,7 @@ window.onload = function() {
             }
             $(".choicebox1").html(str1);
             let str2 = "";
-            for (let i = 18; i < 19; i++) { //在热销爆款处写入数据
+            for (let i = 18; i < 19; i++) { //在葡萄酒馆处写入数据
                 str2 += `
                 <li>
                     <a href="detail.html?id=${res[i].pid}"><img src="${res[i].pimg}" alt=""></a>
@@ -135,7 +135,7 @@ window.onload = function() {
             }
             $(".choicebox2").html(str2);
             let str3 = "";
-            for (let i = 19; i < 24; i++) { //在热销爆款处写入数据
+            for (let i = 19; i < 24; i++) { //在洋酒馆处写入数据
                 // console.log(res[i]);
                 str3 += `
                 <li>
@@ -150,7 +150,7 @@ window.onload = function() {
             $(".choicebox3").html(str3);
         })
     })();
-    //“帮您选酒”模块小轮播
+    //“帮您选酒”模块左侧小轮播 没有用jquery改写，所以兼容性不好，不能让所有小轮播都使用，只能一个轮播写一个js控制
     (function() {
         /* let oSliderBox = document.getElementById("sliderBox"); */
         let oUl = document.getElementById("sliderList");
@@ -398,7 +398,7 @@ window.onload = function() {
             }, 3000)
         });
     })();
-    //楼梯
+    //楼梯控制
     (function() {
         var flag = true;
         let floor = $(".choicewinewrap").children().children(".floor");
@@ -435,10 +435,10 @@ window.onload = function() {
                 flag = true;
             });
 
-            $(this).addClass("hover").siblings().removeClass("hover");
+            $(this).addClass("littlehover").siblings().removeClass("littlehover");
         })
     })();
-    //“品牌旗舰店”模块小轮播
+    //“品牌旗舰店”模块轮播
     (function() {
         /* let oSliderBox = document.getElementById("sliderBox"); */
         let oUl = document.getElementById("sliderList4");
