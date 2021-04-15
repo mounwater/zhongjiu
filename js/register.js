@@ -1,6 +1,7 @@
 window.onload = function() {
     (function() {
         let flag = false;
+        //用户名框
         $(".username").blur(function() {
             if ($(this).val() == "") {
                 // flag = false;//突然发现这种验证形式有bug我在后面改了
@@ -10,6 +11,7 @@ window.onload = function() {
                 $(this).siblings(".warn").removeClass("error").text("");
             }
         });
+        //手机号框
         $(".phonenum").blur(function() {
             let reg = /^1[3456789]\d{9}$/;
             if (!reg.test($(this).val())) {
@@ -19,6 +21,7 @@ window.onload = function() {
             }
         });
         let numflag = false; //这里设置一个新的检测器
+        //密码框
         $(".pwd").blur(function() {
             if ($(this).val() == "") {
                 numflag = false; //修改新检测器
@@ -28,6 +31,7 @@ window.onload = function() {
                 $(this).siblings(".warn").removeClass("error").text("");
             }
         });
+        //确认密码框
         $(".confirm").blur(function() {
             let beforenum = $(".pwd").val();
             if (numflag) { //先判断第一个密码框是否为空
@@ -40,6 +44,7 @@ window.onload = function() {
                 $(this).siblings(".warn").addClass("error").text("请先输入第一次密码！");
             }
         });
+        //注册按钮
         $(".registerbtn").click(function() {
             let username = $(".username").val();
             let pwd = $(".pwd").val();
@@ -52,7 +57,7 @@ window.onload = function() {
                 return;
             }
             let newflag = true;
-            $(".txt").each(function(i) {
+            $(".txt").each(function(i) { //遍历所有文本框，检测是否为空
                 if ($(this).val() == "") {
                     newflag = false;
                 }

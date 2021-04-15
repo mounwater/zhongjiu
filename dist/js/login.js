@@ -2,9 +2,9 @@ window.onload = function() {
     //切换扫码登录模块
     (function() {
         $(".choice li").click(function() {
-            $(this).addClass("active").siblings().removeClass("active");
+            $(this).addClass("active").siblings().removeClass("active"); //改变选项颜色
             let index = $(this).index();
-            $(".change").children(".changebox").eq(index).addClass("choicethis").siblings().removeClass("choicethis");
+            $(".change").children(".changebox").eq(index).addClass("choicethis").siblings().removeClass("choicethis"); //让对应盒子显示，其他盒子隐藏
         });
     })();
     //登录总体控制
@@ -32,10 +32,10 @@ window.onload = function() {
         $(".loginbtn").click(function() {
             let username = $(".username").val();
             let password = $(".password").val();
-            if (username == "" || password == "") {
+            if (username == "" || password == "") { //判断用户名和密码是否为空
                 flag = false;
             }
-            if (!flag) {
+            if (!flag) { //判断是否有提示信息
                 alert("登录失败！请确认信息无误后重试！");
                 return;
             }
