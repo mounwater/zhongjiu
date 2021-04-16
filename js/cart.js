@@ -119,11 +119,14 @@ function emptycart() {
         (function() {
             //获取购物车数据（数量）函数updatecartcount
             function updatecartcount() {
+                console.log("del");
                 let id = $.cookie("userid");
                 $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", { id: id }, (res) => {
                     let count = res.data.length;
                     //写入购物车数量
+                    console.log(res);
                     if (count == 0) {
+                        console.log("hide");
                         cart();
                     } else {
                         emptycart();
@@ -201,10 +204,11 @@ function emptycart() {
                         let pid = $(this).parent().parent().attr("id");
                         $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", { uid: id, pid: pid }, (res) => {
                             console.log(res);
+                            updatecartcount(); //重新获取一下购物车数据，写入购物车数量
                         });
                         allcheck(); //调用更新全选框状态
                         $(".allsum").text(getallsum()); //更新全部商品总价
-                        updatecartcount(); //重新获取一下购物车数据，写入购物车数量
+
                     }
                 });
                 //全选按钮
